@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function DisplayProduct() {
@@ -10,19 +10,31 @@ function DisplayProduct() {
   };
 
   return (
-    <div className="container mt-3">
-      <h2 className="text-center">Display Product Information</h2>
-      <Form>
-        <Form.Group controlId="productId">
-          <Form.Label>Enter Product ID:</Form.Label>
-          <Form.Control type="text" value={productId} onChange={handleChange} />
-        </Form.Group>
-        <Link to={`/product/${productId}`}>
-          <Button variant="primary">
-            View Product Info
-          </Button>
-        </Link>
-      </Form>
+    <div className="container-fluid d-flex justify-content-center align-items-center vh-100">
+      <div className="card bg-light">
+        <article className="card-body mx-auto" style={{ maxWidth: "400px" }}>
+        <h4 className="card-title mt-3 text-center mb-3">Enter Product Information</h4>
+          <Form>
+            <Form.Group as={Row} controlId="productId" className="mb-3">
+              <Form.Label column sm={4}>ID:</Form.Label>
+              <Col sm={8}>
+                <Form.Control type="text" value={productId} onChange={handleChange} />
+              </Col>
+            </Form.Group>
+            <Row className="justify-content-center mt-3">
+              <Col sm={6}>
+                <Link to={`/product/${productId}`}>
+                  <div className="text-center mt-3 mb-3" >
+                    <Button variant="primary" block>
+                      Submit
+                    </Button>
+                  </div>
+                </Link>
+              </Col>
+            </Row>
+          </Form>
+        </article>
+      </div>
     </div>
   );
 }
