@@ -30,40 +30,50 @@ function Home() {
         </div>
       </header>
 
-      {/* About section */}
-      <section className="py-5 border-bottom" id="about">
+        {/* About section */}
+        <section className="py-5 border-bottom" id="about">
         <div className="container px-5 my-5">
-          <div className="row gx-5">
-            <div className="col-lg-4 mb-5 mb-lg-0 text-center">
-              <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i className="fas fa-industry"></i></div>
-              <h2 className="h4 fw-bolder">Manufacturer</h2>
-              <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-              <a className="text-decoration-none" href="product-info">
+            <div className="row gx-5">
+            <div className="col-lg-3 mb-5 mb-lg-0 text-center">
+                <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i className="fas fa-industry"></i></div>
+                <h2 className="h4 fw-bolder">Manufacturer</h2>
+                <p>Manufacturer can SignIn or register to our website by clicking Manufacturer button and can add Medicine.</p>
+                <a className="text-decoration-none" href="product-info">
                 Call to action
                 <i className="bi bi-arrow-right"></i>
-              </a>
+                </a>
             </div>
-            <div className="col-lg-4 mb-5 mb-lg-0 text-center">
-              <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i className="fas fa-truck"></i></div>
-              <h2 className="h4 fw-bolder">Supplier</h2>
-              <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-              <a className="text-decoration-none" href="#!">
+            <div className="col-lg-3 mb-5 mb-lg-0 text-center">
+                <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i className="fas fa-truck"></i></div>
+                <h2 className="h4 fw-bolder">Supplier</h2>
+                <p>Supplier can SignIn using public and private Key. Once authorised they can transfer the medicine to next supplier or to the consumer.</p>
+                <a className="text-decoration-none" href="/update">
                 Call to action
                 <i className="bi bi-arrow-right"></i>
-              </a>
+                </a>
             </div>
-            <div className="col-lg-4 text-center">
-              <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i className="fas fa-users"></i></div>
-              <h2 className="h4 fw-bolder">Consumer</h2>
-              <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-              <a className="text-decoration-none" href="display">
+            <div className="col-lg-3 mb-5 mb-lg-0 text-center">
+                <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i className="fas fa-users"></i></div>
+                <h2 className="h4 fw-bolder">Consumer</h2>
+                <p>Consumer can SignIn and register to our website by clicking Consumer button and can Scan QR code.</p>
+                <a className="text-decoration-none" href="display">
                 Call to action
                 <i className="bi bi-arrow-right"></i>
-              </a>
+                </a>
             </div>
-          </div>
+            <div className="col-lg-3 mb-5 mb-lg-0 text-center">
+                <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i className="fas fa-cogs"></i></div>
+                <h2 className="h4 fw-bolder">Admin</h2>
+                <p>Admin can add Manufacturers and Suppliers to the System.</p>
+                <a className="text-decoration-none" href="admin">
+                Call to action
+                <i className="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            </div>
         </div>
-      </section>
+        </section>
+
 
     </div>
     

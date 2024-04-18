@@ -7,6 +7,10 @@ import ProductInfo from './ProductInfo';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Home';
 import UpdateSupplier from './UpdateSupplier';
+import InputPage from './Admin';
+import SupplierAuth from './SupplierAuth';
+import MedInfo from './MedInfo';
+import UpdateConsumer from './UpdateConsumer';
 
 function App() {
   const [productData, setProductData] = useState(null);
@@ -26,6 +30,7 @@ function App() {
               <li className="nav-item"><a className="nav-link" href="/product-info">Add</a></li>
               <li className="nav-item"><a className="nav-link" href="/display">Display</a></li>
               <li className="nav-item"><a className="nav-link" href="/update">Update</a></li>
+              <li className="nav-item"><a className="nav-link" href="/admin">Admin</a></li>
             </ul>
           </div>
         </div>
@@ -37,7 +42,11 @@ function App() {
           <Route path="/product-info" element={<ProductForm setProductData={setProductData} />} />
           <Route path="/display" element={<DisplayProduct productData={productData} />} />
           <Route path="/product/:id" element={<ProductInfo />} />
-          <Route path="/update" element={<UpdateSupplier />} />
+          <Route path="/update" element={<SupplierAuth />} />
+          <Route path="/admin" element={<InputPage/>} />
+          <Route path="/medInfo" element={<MedInfo/>} />
+          <Route path="/updateSupplier" element={<UpdateSupplier />} />
+          <Route path="/updateConsumer" element={<UpdateConsumer/>} />
         </Routes>
       </Router>
 

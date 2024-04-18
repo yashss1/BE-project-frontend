@@ -6,15 +6,14 @@ import { useParams } from 'react-router-dom';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 
-function UpdateSupplier() {
+function UpdateConsumer() {
   const navigate = useNavigate();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const id = searchParams.get('id');  
-  console.log(id)
   const [formData, setFormData] = useState({
-    supplierId: '', // Set the supplierId to the id parameter if available, otherwise set to '0'
-    supplierName: '',
+    supplierId: 'Consumer', // Set the supplierId to the id parameter if available, otherwise set to '0'
+    supplierName: 'null',
     productId: id || '0' ,
     temperature: '',
   });
@@ -72,20 +71,20 @@ function UpdateSupplier() {
       ) : (
         <div className="card bg-light">
           <article className="card-body mx-auto" style={{ maxWidth: "400px" }}>
-            <h4 className="card-title mt-3 text-center">Transfer to Supplier</h4>
+            <h4 className="card-title mt-3 text-center">Transfer to Consumer</h4>
             {error && <p className="text-danger">{error}</p>}
             <Form onSubmit={handleSubmit}>
               <Row>
                 <Col md={6}>
                   <Form.Group controlId="formSupplierId" className="mb-3">
                     <Form.Label><i className="fa fa-id-badge"></i> Supplier ID:</Form.Label>
-                    <Form.Control type="text" name="supplierId" value={formData.supplierId} onChange={handleChange} />
+                    <Form.Control type="text" name="supplierId" value={formData.supplierId} onChange={handleChange} disabled/>
                   </Form.Group>
                 </Col>
                 <Col md={6}>
                   <Form.Group controlId="formSupplierName" className="mb-3">
                     <Form.Label><i className="fa fa-user"></i> Supplier Name:</Form.Label>
-                    <Form.Control type="text" name="supplierName" value={formData.supplierName} onChange={handleChange} />
+                    <Form.Control type="text" name="supplierName" value={formData.supplierName} onChange={handleChange} disabled/>
                   </Form.Group>
                 </Col>
               </Row>
@@ -130,4 +129,4 @@ function UpdateSupplier() {
   );
 }
 
-export default UpdateSupplier;
+export default UpdateConsumer;

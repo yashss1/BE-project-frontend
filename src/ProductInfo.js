@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Spinner, Table } from 'react-bootstrap'; // Added Table component
+import { Card, Spinner, Table } from 'react-bootstrap';
 import productImage from './image.jpg';
 import { useParams } from 'react-router-dom';
 
 const productContainerStyle = {
-  backgroundColor: '#8B4513', // Brown color
+  backgroundColor: '#8B4513',
   minHeight: '100vh',
   color: 'white',
-  fontFamily: 'Georgia, serif', // Changing font style
-  borderRadius: '10px', // Adding rounded corners to container
-  padding: '20px', // Adding padding to the container
+  fontFamily: 'Georgia, serif',
+  borderRadius: '10px',
+  padding: '20px',
 };
 
 const cardStyle = {
-  width: '600px', // Increasing the width of the card
+  maxWidth: '600px',
   boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
   transition: '0.3s',
   borderRadius: '10px',
   marginBottom: '20px',
-  backgroundColor: '#F5F5DC', // Beige color
-  color: 'black', // Changing font color to black
+  backgroundColor: '#F5F5DC',
+  color: 'black',
 };
 
 const cardContentStyle = {
@@ -27,32 +27,36 @@ const cardContentStyle = {
 };
 
 const titleStyle = {
-  marginTop: '20px', // Adding space between image and title
+  marginTop: '20px',
 };
 
 const imageStyle = {
-  width: '100%', // Making the image fill the width of the container
-  height: 'auto', // Maintaining aspect ratio
-  borderRadius: '10px', // Adding rounded corners to image
+  width: '100%',
+  height: 'auto',
+  borderRadius: '10px',
 };
 
 const statsStyle = {
-  marginTop: '20px', // Adding space between image and title
+  marginTop: '20px',
 };
 
 const parameterStyle = {
-  marginBottom: '5px', // Decreasing margin between parameters
+  marginBottom: '5px',
 };
 
 const valueStyle = {
-  marginBottom: '5px', // Decreasing margin between values
+  marginBottom: '5px',
+  maxWidth: '150px', // Adjust the width as needed
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
 };
 
 function ProductInfo() {
   const { id } = useParams();
   const [productInfo, setProductInfo] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true); // Added loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProductInfo = async () => {
@@ -74,7 +78,7 @@ function ProductInfo() {
         setError('Error fetching product information. Please try again later.');
         console.error('Error fetching product information:', error);
       } finally {
-        setLoading(false); // Set loading to false after fetching
+        setLoading(false);
       }
     };
 
@@ -88,7 +92,7 @@ function ProductInfo() {
 
   return (
     <div style={productContainerStyle} className="d-flex justify-content-center align-items-center">
-      {loading ? ( // Conditionally render loading icon
+      {loading ? (
         <Spinner animation="border" variant="light" />
       ) : (
         productInfo && (
@@ -105,15 +109,14 @@ function ProductInfo() {
                 <div className="d-flex justify-content-between p-price" style={parameterStyle}><span>Manufacturing Date:</span><span style={valueStyle}>{formatDate(productInfo.manufacturingDate)}</span></div>
                 <div className="d-flex justify-content-between p-price" style={parameterStyle}><span>Expiry Date:</span><span style={valueStyle}>{formatDate(productInfo.expiryDate)}</span></div>
                 <div className="d-flex justify-content-between p-price" style={parameterStyle}><span>MRP:</span><span style={valueStyle}>{productInfo.mrp}</span></div>
-                <div className="d-flex justify-content-between p-price" style={parameterStyle}><span>Certification:</span><span style={valueStyle}>{productInfo.certification}</span></div>
                 <div className="d-flex justify-content-between p-price" style={parameterStyle}><span>Quantity:</span><span style={valueStyle}>{productInfo.quantity}</span></div>
               </div>
               <div className="d-flex justify-content-between total font-weight-bold mt-4"><span>Total</span><span>${(productInfo.mrp * productInfo.quantity).toFixed(2)}</span></div>
               {/* Table displaying supplier and temperature information */}
-              <Table striped bordered hover variant="light" className="mt-4"> {/* Change variant to "light" */}
+              <Table striped bordered hover variant="light" className="mt-4">
                 <thead>
                   <tr>
-                    <th>#</th> {/* Add row number column */}
+                    <th>#</th>
                     <th>Supplier</th>
                     <th>Temperature</th>
                   </tr>
@@ -121,9 +124,9 @@ function ProductInfo() {
                 <tbody>
                   {productInfo.suppliers.map((supplier, index) => (
                     <tr key={index}>
-                      <td>{index + 1}</td> {/* Add row number */}
-                      <td>{supplier}</td>
-                      <td>{productInfo.temperature[index]}</td>
+                      <td>{index + 1}</td>
+                      <td style={valueStyle}>{supplier}</td>
+                      <td style={valueStyle}>{productInfo.temperature[index]}</td>
                     </tr>
                   ))}
                 </tbody>
